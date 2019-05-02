@@ -1,6 +1,16 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 
+let style = {
+    bookImage: {
+        width: 207,
+        height: 296
+    },
+    bookDiv: {
+        textAlign: "center"
+    }
+}
+
 class Search extends Component {
     state = {
         searchTerm: "",
@@ -57,9 +67,9 @@ class Search extends Component {
     render () {
         return (
             <React.Fragment>
-                <div className="jumbotron jumbotron-fluid bg-dark text-light">
+                <div className="jumbotron jumbotron-fluid">
                     <div className="container-fluid">
-                        <h1>Search For Books Here</h1>
+                        <h1>Search For and Save Your Favorite Books!</h1>
                     </div>
                 </div>
                 <div className="container-fluid">
@@ -76,7 +86,7 @@ class Search extends Component {
                                     className="form-control mb-3"
                                 />
                                 <button className="btn btn-block btn-success" onClick={this.handleFormSubmit}>
-                                    Search for book
+                                    Search
                                 </button>
                             </form>
                         </div>
@@ -85,13 +95,13 @@ class Search extends Component {
                             <h2 className="text-center">Search For a Book</h2>
                             ) : (
                             <React.Fragment>
-                                <h3>Search Results For: {this.state.searchTerm}</h3>
+                                <h3>Results: {this.state.searchTerm}</h3>
                                 <div className="row">
                                 {this.state.booksList.map(book => {
                                     return (
                                         <div className="col-12 col-md-6" key={book.bookId}>
                                             <div className="card">
-                                                <img src={book.image} alt={book.title} className="card-img-top" />
+                                                <div style={style.bookDiv}><img src={book.image} alt={book.title} style={style.bookImage} className="card-img-top" /></div>
                                                 <div className="card-body">
                                                     <h5 className="card-title">{book.title}</h5>
                                                     <p className="card-text">Released: {book.date}</p>

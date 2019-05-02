@@ -28,7 +28,7 @@ class Saved extends Component {
             <React.Fragment>
                 <div className="jumbotron jumbotron-fluid bg-dark text-light">
                     <div className="container-fluid">
-                        <h1>View Saved Books Here</h1>
+                        <h1>View Saved Books</h1>
                     </div>
                 </div>
                 <div className="container-fluid">
